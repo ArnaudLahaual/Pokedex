@@ -1,12 +1,8 @@
 import React from "react";
 
-function PokemonCollection(name,url) {
+function PokemonCollection() {
     return(
     <div>
-        <h1>PokemonCollection</h1>
-        <p>{name}</p>
-        <p>{url}</p>
-
 
     </div>
     )

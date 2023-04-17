@@ -1,35 +1,30 @@
-import './App.css';
 import { useEffect, useState } from 'react';
-import axios from 'axios';
-import PokemonCollection from './components/PokemonCollection.js';
+import './App.css';
 
 function App() {
 
-  const [ pokemons, setPokemons] = useState([])
+  const [allPokemons, setAllPokemons] = useState([]);
+  const [loadMore, setLoadMore] = useState('https://pokeapi.co/api/v2/pokemon?limit=20');
 
-  useEffect (() => {
-  const getPokemon = async () => {
-    const res = await axios.get(
-      "https://pokeapi.co/api/v2/pokemon?limit=20&offset=20")
-      console.log(res.data.results)
+  const getAllPokemons = async () => {
+    const res = await fetch(loadMore)
+    const data =await res.json()
 
-      res.data.results.forEach( async (pokemon) => {
-        const poke = await axios.get(`https://pokeapi.co/api/v2/pokemon/${pokemon.name}`)
-setPokemons((poke) => [...poke, poke.data])
-      });
-}
-getPokemon()
-  },[])
+    setLoadMore(data.next)
 
+  }
 
-
+  useEffect(() => {
+    getAllPokemons()
+  }), [];
 
   return (
     <div className="App">
-    <header className='pokemon'>
+      <h1>Pokemon</h1>
+    <div className='pokemon-container'>
       Pokemon
-    </header>
-    <PokemonCollection />
+    </div>
+    <button className='load-more'>Voir plus</button>
     </div>
   );
 }
