@@ -1,20 +1,22 @@
 import { useEffect, useState } from 'react';
 import './App.css';
-import { fetchPokemons } from './actions/pokemons';
+import { fetchPokemonByName, fetchPokemons } from './actions/pokemons';
 import { useDispatch } from 'react-redux';
+import PokemonCollection from './components/PokemonCollection.js';
 
 function App() {
 const dispatch=useDispatch();
 
   useEffect(() => {
-    dispatch(fetchPokemons());
+
+    dispatch(fetchPokemonByName());
   }, []);
 
   return (
     <div className="App">
       <h1>Pokemon</h1>
     <div className='pokemon-container'>
-      Pokemon
+      <PokemonCollection />
     </div>
     <button className='load-more'>Voir plus</button>
     </div>

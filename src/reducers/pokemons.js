@@ -1,7 +1,10 @@
-import{ FETCH__POKEMONS, SAVE__POKEMONS} from '../actions/pokemons';
+import{ FETCH__POKEMONS, SAVE__POKEMONS, SAVE__POKEMON__BY__NAME} from '../actions/pokemons';
 
 const initialState = {
     listPokemons: [],
+    id:'',
+    name:'',
+    url:'',
 }
 
 function reducer(state = initialState, action ={} ){
@@ -11,6 +14,13 @@ function reducer(state = initialState, action ={} ){
                 ...state,
                 listPokemons: action.pokemons,
             };
+            case SAVE__POKEMON__BY__NAME:
+                return {
+                ...state,
+                listPokemons: action.pokemons,
+                name: action.name,
+                };
+      
   
             
     default:

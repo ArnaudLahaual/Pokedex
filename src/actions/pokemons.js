@@ -8,3 +8,19 @@ export const savePokemons = (pokemons) => ({
   type: SAVE__POKEMONS,
   pokemons,
 });
+
+export const FETCH__POKEMON__BY__NAME = 'FETCH__POKEMON__BY__NAME';
+export const fetchPokemonByName = (pokemon,id,name) => ({
+type:FETCH__POKEMON__BY__NAME,
+pokemon,
+id,
+name,
+});
+
+export const SAVE__POKEMON__BY__NAME = 'SAVE__POKEMON__BY__NAME';
+export const savePokemonByName = (pokemon,id,name) => ({
+  type: SAVE__POKEMON__BY__NAME,
+  pokemon,
+  id,
+  name,
+});
