@@ -1,22 +1,14 @@
 import { useEffect, useState } from 'react';
 import './App.css';
+import { fetchPokemons } from './actions/pokemons';
+import { useDispatch } from 'react-redux';
 
 function App() {
-
-  const [allPokemons, setAllPokemons] = useState([]);
-  const [loadMore, setLoadMore] = useState('https://pokeapi.co/api/v2/pokemon?limit=20');
-
-  const getAllPokemons = async () => {
-    const res = await fetch(loadMore)
-    const data =await res.json()
-
-    setLoadMore(data.next)
-
-  }
+const dispatch=useDispatch();
 
   useEffect(() => {
-    getAllPokemons()
-  }), [];
+    dispatch(fetchPokemons());
+  }, []);
 
   return (
     <div className="App">
