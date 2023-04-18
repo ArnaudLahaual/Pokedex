@@ -9499,7 +9499,9 @@ __metadata:
     react-dom: ^18.2.0
     react-redux: ^8.0.5
     react-scripts: 5.0.1
+    react-slugify: ^3.0.2
     redux: ^4.2.1
+    slugify: ^1.6.6
     web-vitals: ^2.1.0
   languageName: unknown
   linkType: soft
@@ -10761,6 +10763,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"react-slugify@npm:^3.0.2":
+  version: 3.0.2
+  resolution: "react-slugify@npm:3.0.2"
+  checksum: 2d5ed0074d47b8922a56df914291be80a7f840de6022f2fd93f1e2788b2d468e0a5d1cc2c4dacfea1055264619223a54ee73bed31ecb4d800edd474721725ffb
+  languageName: node
+  linkType: hard
+
 "react@npm:^18.2.0":
   version: 18.2.0
   resolution: "react@npm:18.2.0"
@@ -11446,6 +11455,13 @@ __metadata:
   version: 4.0.0
   resolution: "slash@npm:4.0.0"
   checksum: da8e4af73712253acd21b7853b7e0dbba776b786e82b010a5bfc8b5051a1db38ed8aba8e1e8f400dd2c9f373be91eb1c42b66e91abb407ff42b10feece5e1d2d
+  languageName: node
+  linkType: hard
+
+"slugify@npm:^1.6.6":
+  version: 1.6.6
+  resolution: "slugify@npm:1.6.6"
+  checksum: 04773c2d3b7aea8d2a61fa47cc7e5d29ce04e1a96cbaec409da57139df906acb3a449fac30b167d203212c806e73690abd4ff94fbad0a9a7b7ea109a2a638ae9
   languageName: node
   linkType: hard
 
