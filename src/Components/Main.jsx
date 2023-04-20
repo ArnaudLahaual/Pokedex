@@ -6,9 +6,9 @@ import axios from 'axios';
 
 const Main=()=> {
 
-    const [pokeData,setPokedada] =useState([]);
+    const [pokeData,setPokedata] =useState([]);
     const [loading,setLoading]=useState(true);
-    const [url,setUrl]=useState('https://pokeapi.co/api/v2/pokemon?limit=0&offset=20')
+    const [url,setUrl]=useState('https://pokeapi.co/api/v2/pokemon/')
     const [nextUrl, setNextUrl]=useState();
     const [prevUrl, setPrevUrl]=useState();
     const [pokeDex,setPoKeDex]=useState();
@@ -27,7 +27,7 @@ const Main=()=> {
         res.map(async(item)=>{
             const result=await axios.get(item.url)
             // console.log(result)
-            setPokedada(state=>{
+            setPokedata(state=>{
                 state=[...state,result.data]
                 return state;
             })
@@ -43,8 +43,15 @@ const Main=()=> {
             <div className="left-content">
                 <Card pokemon={pokeData} loading={loading} infoPokemon={poke=>setPoKeDex(poke)}/>
                 <div className="btn-group">
-                    <button>Previous</button>
-                    <button>Next</button>
+                    <button onClick={()=>{
+                        setPokedata([])
+                        setUrl(prevUrl)
+                    }}>Previous</button>
+
+                    <button onClick={()=>{
+                        setUrl(nextUrl)
+                        setPokedata([])
+                    }}>Next</button>
                 </div>
             </div>
             <div className="right-content">
