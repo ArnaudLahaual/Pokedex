@@ -1,5 +1,5 @@
 import axios from 'axios';
-import slugify from 'react-slugify';
+// import slugify from 'react-slugify ';
 
 import { FETCH__POKEMONS, FETCH__POKEMON__BY__NAME, savePokemonByName, savePokemons } from '../actions/pokemons';
 
@@ -20,23 +20,23 @@ const pokemons = (store) => (next) => (action) => {
                 break
             }
 
-            case FETCH__POKEMON__BY__NAME: {
+    //         case FETCH__POKEMON__BY__NAME: {
 
-      const {pokemons : { name } } = store.getState();
-      const pokemonSlug = slugify(name);
+    //   const {pokemons : { name } } = store.getState();
+    //   const pokemonSlug = slugify(name);
 
-                axios.get(`https://pokeapi.co/api/v2/pokemon/${pokemonSlug}`)
-                    .then((res) => {
-                        store.dispatch(savePokemonByName(res.data));
-                        console.log(res);
+    //             axios.get(`https://pokeapi.co/api/v2/pokemon/${pokemonSlug}`)
+    //                 .then((res) => {
+    //                     store.dispatch(savePokemonByName(res.data));
+    //                     console.log(res);
     
-                    })
-                    .catch((error) => {
-                        console.log(error);
-                    })
-                    next(action);
-                    break
-                }
+    //                 })
+    //                 .catch((error) => {
+    //                     console.log(error);
+    //                 })
+    //                 next(action);
+    //                 break
+    //             }
             
 
             default:

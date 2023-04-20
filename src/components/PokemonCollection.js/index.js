@@ -12,7 +12,17 @@ function PokemonCollection() {
   }, []);
 
     const {listPokemons} = useSelector((state) => state.pokemons);
-    console.log(listPokemons);
+
+    function createPokemonObject(result) {
+      result.forEach(async (pokemon) => {
+        const res = await fetch (`https://pokeapi.co/api/v2/pokemon/${pokemon.name}`)
+        const data = await res.json()
+
+        listPokemons(currenlist => [...currenlist, data])
+        console.log(listPokemons)
+      })
+      createPokemonObject(data.result)
+    }
 
     return(
     <div>
