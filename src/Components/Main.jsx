@@ -8,9 +8,10 @@ const Main=()=> {
 
     const [pokeData,setPokedada] =useState([]);
     const [loading,setLoading]=useState(true);
-    const [url,setUrl]=useState('https://pokeapi.co/api/v2/pokemon/')
+    const [url,setUrl]=useState('https://pokeapi.co/api/v2/pokemon?limit=0&offset=20')
     const [nextUrl, setNextUrl]=useState();
     const [prevUrl, setPrevUrl]=useState();
+    const [pokeDex,setPoKeDex]=useState();
 
     const pokeFun=async()=>{
         setLoading(true)
@@ -20,7 +21,6 @@ const Main=()=> {
         setPrevUrl(res.data.previous);
         getPokemon(res.data.results)
         setLoading(false)
-
     }
     
     const getPokemon=async(res)=> {
@@ -29,6 +29,7 @@ const Main=()=> {
             // console.log(result)
             setPokedada(state=>{
                 state=[...state,result.data]
+                return state;
             })
         })
     }
@@ -40,19 +41,14 @@ const Main=()=> {
         <>
         <div className="container">
             <div className="left-content">
-                <Card />
-                <Card />
-                <Card />
-                <Card />
-                <Card />
-                <Card /> 
+                <Card pokemon={pokeData} loading={loading} infoPokemon={poke=>setPoKeDex(poke)}/>
                 <div className="btn-group">
                     <button>Previous</button>
                     <button>Next</button>
                 </div>
             </div>
             <div className="right-content">
-                <Pokeinfo />
+                <Pokeinfo data={pokeDex}/>
             </div>
         </div>
         </>
