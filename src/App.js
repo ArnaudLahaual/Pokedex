@@ -1,14 +1,13 @@
 import './App.css';
+import Main from './Components/Main';
+import './Components/style.css';
 
 function App() {
 
   return (
-    <div className="App">
-      <h1>Pokemon</h1>
-    <div className='pokemon-container'>
-    </div>
-    <button className='load-more'>Voir plus</button>
-    </div>
+   <>
+   <Main />
+   </>
   );
 }
 
