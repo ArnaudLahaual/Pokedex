@@ -21,9 +21,23 @@ body{
 }
 
 .left-content{
-display: flex;
-flex-direction: column;
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    align-items: center;
+
+    
 }
+
+@media screen and (min-width: 768px){
+    .left-content{
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        flex-wrap: wrap;
+    }
+}
+
 
 .right-content{
     width: 50%;
@@ -35,13 +49,16 @@ flex-direction: column;
 }
 
 .right-content img{
-    margin: 2rem;
+    width: 150px;
+    height: 220px;
+
 }
 
 .right-content h1{
     text-transform: uppercase;
     font-weight: bold;
     letter-spacing: 1px;
+    font-size: 20px;
 }
 
 .abilities{
@@ -67,7 +84,7 @@ base.stat{
 }
 
 .card{
-    width: 500px;
+    width: 175px;
     background-color: #9EDEF9;
     border-radius: 1rem;
     box-shadow: 0 5px 5px rgba(0,0,0,0.5);
@@ -77,6 +94,7 @@ base.stat{
     justify-content: space-between;
     box-sizing: border-box;
     margin: 20px;
+    flex-direction: column;
 }
 
 .btn-group{
